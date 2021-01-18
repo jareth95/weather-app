@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;  
+}
+.hot-background {
+    background: linear-gradient(rgb(255, 167, 35), rgb(255, 97, 35));
+    color: black;
+}
+.cold-background {
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    color: white;
+}
+.location, .temperature {
+    height: 20vh;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.temperature {
+    flex-direction: column;
+}
+.temperature-description {
+    font-size: 1.5rem;
+}
+.degree-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.degree-section span {
+    margin: 1rem;
+    font-size: 2rem;
+}
+.degree-section h2 {
+    font-size: 4rem;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+.city-search {
+    margin-top: 3rem;
+    font-size: 2rem;
+    outline: none;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    width: 100%;
+}
