@@ -57,3 +57,19 @@ body {
     padding: .5rem 1rem;
     width: 100%;
 }
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forecast1, .forecast2, .forecast3, .forecast4 {
+    margin: 3rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+.day-container1, .degree-section1, .temperature-description1, .day-container2, .degree-section2, .temperature-description2, .day-container3, .degree-section3, .temperature-description3, .day-container4, .degree-section4, .temperature-description4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
