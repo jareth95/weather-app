@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
             long = position.coords.longitude
             lat = position.coords.latitude
 
-            forecastApi = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=09d7593febfa1a230b21516c97cb70d8`
+            forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=09d7593febfa1a230b21516c97cb70d8`
 
             fetch(forecastApi)
             .then(response => {
@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
                 settingForecastDOMElements(data)
             })
 
-            currentApi = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=en&appid=09d7593febfa1a230b21516c97cb70d8`
+            currentApi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=en&appid=09d7593febfa1a230b21516c97cb70d8`
 
             fetch(currentApi)
             .then(response => {
@@ -172,7 +172,7 @@ window.addEventListener('load', () => {
         lat = place.geometry.location.lat()
         long = place.geometry.location.lng()
 
-        forecastApi = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=09d7593febfa1a230b21516c97cb70d8`
+        forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=09d7593febfa1a230b21516c97cb70d8`
 
         fetch(forecastApi)
             .then(response => {
@@ -182,7 +182,7 @@ window.addEventListener('load', () => {
                 settingForecastDOMElements(data)
             })
         
-        currentApi = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=en&appid=09d7593febfa1a230b21516c97cb70d8`
+        currentApi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=en&appid=09d7593febfa1a230b21516c97cb70d8`
 
             fetch(currentApi)
             .then(response => {
