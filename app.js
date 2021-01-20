@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
     const temperatureSection = document.querySelector('.degree-section')
     const temperatureSpan = document.querySelector('.temperature span')
     const searchElement = document.querySelector('[data-city-search]')
+    const animationSection = document.querySelector('.temperature')
     const searchBox = new google.maps.places.SearchBox(searchElement)
     const day1Forecast = document.querySelector('.day1')
     const day2Forecast = document.querySelector('.day2')
@@ -25,6 +26,10 @@ window.addEventListener('load', () => {
     const day2Icon = document.querySelector('.icon2')
     const day3Icon = document.querySelector('.icon3')
     const day4Icon = document.querySelector('.icon4')
+    const day1Container = document.querySelector('.forecast1')
+    const day2Container = document.querySelector('.forecast2')
+    const day3Container = document.querySelector('.forecast3')
+    const day4Container = document.querySelector('.forecast4')
     
     let currentApi 
     let forecastApi
@@ -44,7 +49,6 @@ window.addEventListener('load', () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
                 settingForecastDOMElements(data)
             })
 
@@ -55,7 +59,6 @@ window.addEventListener('load', () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
                 settingCurrentDOMElements(data)
             })
         })
@@ -73,7 +76,7 @@ window.addEventListener('load', () => {
         locationTimezone.textContent = timezone
         icon.src = `/images/${iconID}.png`
 
-        if (temp <= 15) {
+        if (temp <= 18) {
             body.classList.add('cold-background')
             body.classList.remove('hot-background')
         } else {
@@ -176,7 +179,6 @@ window.addEventListener('load', () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
                 settingForecastDOMElements(data)
             })
         
@@ -187,8 +189,47 @@ window.addEventListener('load', () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
                 settingCurrentDOMElements(data)
             })
     })
+    // Mouseover animation 
+    animationSection.addEventListener('mouseover', addAnimation)
+    day1Container.addEventListener('mouseover', addAnimationForecast)
+    day2Container.addEventListener('mouseover', addAnimationForecast)
+    day3Container.addEventListener('mouseover', addAnimationForecast)
+    day4Container.addEventListener('mouseover', addAnimationForecast)
+
+    animationSection.addEventListener('mouseleave', removeAnimation)
+    day1Container.addEventListener('mouseleave', removeAnimation)
+    day2Container.addEventListener('mouseleave', removeAnimation)
+    day3Container.addEventListener('mouseleave', removeAnimation)
+    day4Container.addEventListener('mouseleave', removeAnimation)
+
+    function addAnimation(e) {
+
+        if(e.target.innerHTML.includes('rain')) body.classList.add('rain-background')
+        if(e.target.innerHTML.includes('cloud')) {
+            body.classList.add('cloud-background')
+            body.style.setProperty('color', 'black', 'important')
+        } 
+        if(e.target.innerHTML.includes('snow')) body.classList.add('snow-background')
+    }
+    function addAnimationForecast(e) {
+
+        if(e.target.parentElement.innerHTML.includes('rain')) body.classList.add('rain-background')
+        if(e.target.parentElement.innerHTML.includes('cloud')) {
+            body.classList.add('cloud-background')
+            body.style.setProperty('color', 'black', 'important')
+        } 
+        if(e.target.parentElement.innerHTML.includes('snow')) body.classList.add('snow-background')
+    }
+    function removeAnimation(e) {
+        
+        if(body.classList.contains('rain-background')) body.classList.remove('rain-background')
+        if(body.classList.contains('cloud-background')) {
+            body.classList.remove('cloud-background')
+            body.style.setProperty('color', '')
+        } 
+        if(body.classList.contains('snow-background')) body.classList.remove('snow-background')
+    }
 })
